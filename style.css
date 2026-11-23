@@ -1,0 +1,49 @@
+:root{
+  --bg:#f3f6f8; --surface:#ffffff; --ink:#14232e; --muted:#5f7280; --line:#d5dee5;
+  --accent:#0b7a75; --accent-ink:#ffffff; --danger:#b3261e;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1a21; --surface:#17262f; --ink:#e8f0f4; --muted:#93a8b5; --line:#2a3d49;
+    --accent:#3cc4bb; --accent-ink:#06201e; --danger:#ff8a80; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1a21; --surface:#17262f; --ink:#e8f0f4; --muted:#93a8b5; --line:#2a3d49;
+  --accent:#3cc4bb; --accent-ink:#06201e; --danger:#ff8a80; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+main{max-width:34rem; margin:0 auto; padding:2.5rem 1rem 3rem}
+h1{font-size:1.75rem; margin:0 0 1.25rem; letter-spacing:-.01em}
+form{display:flex; gap:.5rem; margin-bottom:1rem}
+input[type=text]{
+  flex:1; min-width:0; padding:.7rem .85rem; font:inherit; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:8px;
+}
+button{
+  font:inherit; cursor:pointer; border-radius:8px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink); padding:.5rem .8rem;
+}
+button.primary{background:var(--accent); color:var(--accent-ink); border-color:var(--accent); font-weight:600; padding:.7rem 1.1rem}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+ul{list-style:none; margin:0; padding:0; background:var(--surface); border:1px solid var(--line); border-radius:10px}
+li{display:flex; align-items:center; gap:.75rem; padding:.7rem .85rem; border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li input[type=checkbox]{width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none}
+li span{flex:1; overflow-wrap:anywhere}
+li.done span{text-decoration:line-through; color:var(--muted)}
+li button{color:var(--danger); padding:.3rem .6rem; font-size:.875rem}
+.empty{padding:1.1rem .85rem; color:var(--muted)}
+.bar{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.5rem; margin-top:.9rem}
+#count{margin:0; color:var(--muted)}
+.filters{display:flex; gap:.25rem}
+.filters button[aria-pressed=true]{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+#clear{margin-top:.75rem}
